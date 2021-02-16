@@ -37,6 +37,8 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class implements the audio playback and recording capabilities used by Cordova.
@@ -343,7 +345,48 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
         String logMsg = "appending" + this.tempFile + " to " + file;
         Log.d(LOG_TAG, logMsg);
         mp4ParserWrapper.append(file, this.tempFile);
+    }
 
+    /**
+     * Combine two audios with current audio file
+     */
+    public void combineAudios(String file1, String file2) {
+        try{
+            this.doCombineAudios(file1, file2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void doCombineAudios(String file1, String file2 ) {
+
+        if (!file1.startsWith("/")) {
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                file1 = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + file1;
+            } else {
+                file1 = "/data/data/" + handler.cordova.getActivity().getPackageName() + "/cache/" + file1;
+            }
+        }
+
+        if (!file2.startsWith("/")) {
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                file2 = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + file2;
+            } else {
+                file2 = "/data/data/" + handler.cordova.getActivity().getPackageName() + "/cache/" + file2;
+            }
+        }
+
+        String logMsg = "merging" + this.audioFile + " with " + file1 +" &" + file2;
+        Log.d(LOG_TAG, logMsg);
+
+        String[] listFiles = { file1, file2 };
+
+        try {
+            mp4ParserWrapper.mergeMediaFiles(listFiles, this.audioFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 	
 

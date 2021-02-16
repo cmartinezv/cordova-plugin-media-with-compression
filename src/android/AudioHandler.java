@@ -210,6 +210,14 @@ public class AudioHandler extends CordovaPlugin {
             callbackContext.sendPluginResult(new PluginResult(status, f));
             return true;
         }
+
+        else if (action.equals("combineAudios")) {
+            String id = args.getString(0);
+            String file1 = FileHelper.stripFileProtocol(args.getString(2));
+            String file2 = FileHelper.stripFileProtocol(args.getString(3));
+
+            combineAudios(id, file1, file2);
+        }
 		
 		//REM mods
 		else if (action.equals("getRecordDbLevel")) {
@@ -329,6 +337,19 @@ public class AudioHandler extends CordovaPlugin {
         }
         audio.destroy();
         return true;
+    }
+
+    /**
+     * Combile Audios
+     * @param id				The id of the audio player
+     * @param file1				The name of the file
+     * @param file2			The name of the file
+     */
+    public void combineAudios(String id, String file1, String file2) {
+        AudioPlayer audio = this.players.get(id);
+        if (audio != null) {
+            audio.combineAudios(file1, file2);
+        }
     }
 
     /**

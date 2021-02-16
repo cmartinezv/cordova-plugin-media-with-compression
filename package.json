@@ -1,7 +1,32 @@
 {
-  "name": "cordova-media-with-compression",
-  "version": "2.1.2",
-  "description": "Cordova Media Plugin with MPEG 4 audio compression for iOS and Android",
+  "_from": "git+https://github.com/cmartinezv/cordova-plugin-media-with-compression.git",
+  "_id": "cordova-media-with-compression@2.1.3",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-media-with-compression",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/cmartinezv/cordova-plugin-media-with-compression",
+    "rawSpec": "https://github.com/cmartinezv/cordova-plugin-media-with-compression",
+    "saveSpec": "git+https://github.com/cmartinezv/cordova-plugin-media-with-compression.git",
+    "fetchSpec": "https://github.com/cmartinezv/cordova-plugin-media-with-compression.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/cmartinezv/cordova-plugin-media-with-compression.git#4eeea819019ef0cd23cbcde8b09c7774f7ea2823",
+  "_spec": "https://github.com/cmartinezv/cordova-plugin-media-with-compression",
+  "_where": "/Users/cmartinezv/my_projects/apps/video-channels",
+  "author": {
+    "name": "@remoorejr"
+  },
+  "bugs": {
+    "url": "https://github.com/remoorejr/cordova-plugin-media-with-compression/issues"
+  },
+  "bundleDependencies": false,
   "cordova": {
     "id": "cordova-media-with-compression",
     "platforms": [
@@ -9,10 +34,15 @@
       "ios"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/remoorejr/cordova-plugin-media-with-compression.git"
-  },
+  "deprecated": false,
+  "description": "Cordova Media Plugin with MPEG 4 audio compression for iOS and Android",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/remoorejr/cordova-plugin-media-with-compression#readme",
   "keywords": [
     "ecosystem:cordova",
     "media",
@@ -21,16 +51,11 @@
     "cordova-android",
     "cordova-ios"
   ],
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=3.0.0"
-    }
-  ],
-  "author": "@remoorejr",
   "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/remoorejr/cordova-plugin-media-with-compression/issues"
+  "name": "cordova-media-with-compression",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remoorejr/cordova-plugin-media-with-compression.git"
   },
-  "homepage": "https://github.com/remoorejr/cordova-plugin-media-with-compression#readme"
+  "version": "2.1.2"
 }

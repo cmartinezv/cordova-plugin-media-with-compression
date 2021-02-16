@@ -14,8 +14,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -96,6 +100,43 @@ public class mp4ParserWrapper {
         while ((len = in.read(buf)) > 0) {
             out.write(buf, 0, len);
         }
+    }
+
+
+    public static void mergeMediaFiles(String sourceFiles[], String targetFile) {
+        try {
+            copyFile( sourceFiles[0], targetFile);
+        } catch (IOException e) {
+            Log.e("MYTAG", "Error merging media files. exception: "+e.getMessage());
+        }
+
+//         try {
+//            List<Movie> listMovies = new ArrayList<>();
+//            for (String filename : sourceFiles) {
+//                listMovies.add(MovieCreator.build(filename));
+//            }
+//            List<Track> listTracks = new LinkedList<>();
+//            for (Movie movie : listMovies) {
+//                for (Track track : movie.getTracks()) {
+//                    if (track.getHandler().equals("soun")) {
+//                        listTracks.add(track);
+//                    }
+//                }
+//            }
+//            Movie outputMovie = new Movie();
+//            if (!listTracks.isEmpty()) {
+//                outputMovie.addTrack(new AppendTrack(listTracks.toArray(new Track[listTracks.size()])));
+//            }
+//            Container container = new DefaultMp4Builder().build(outputMovie);
+//            FileChannel fileChannel = new RandomAccessFile(String.format(targetFile), "rws").getChannel();
+//            container.writeContainer(fileChannel);
+//            fileChannel.close();
+//            return true;
+//        }
+//            catch (IOException e) {
+//            Log.e("MYTAG", "Error merging media files. exception: "+e.getMessage());
+//            return false;
+//        }
     }
 
     public static void append(
